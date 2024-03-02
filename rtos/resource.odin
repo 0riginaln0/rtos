@@ -1,5 +1,4 @@
-package globals
-/*мб вынести ресурс в подмодуль*/
+package rtos
 
 Resource :: struct {
 	task_ref: int, /* наверое не ref, а id */

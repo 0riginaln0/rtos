@@ -1,10 +1,11 @@
 package rtos
 
-import globals "../globals"
 import "core:fmt"
 
 /*и мб другие параметры*/
-start_os :: proc(task: globals.Task) {
+start_os :: proc(task: Task) {
 	fmt.println("vrum vrum")
 	fmt.println(task)
 }
+
+/* shutdown_os :: proc() {}*/

@@ -1,4 +1,4 @@
-package globals
+package rtos
 
 MAX_TASK :: 16
 MAX_RES :: 8
