@@ -14,4 +14,11 @@ main :: proc() {
 		name = "Abobus",
 	}
 	start_os(first_task)
+
+	shutdown_os()
 }
+
+//todo: подумать про то где передаём task: Task, а где task: int
+//todo: правильная инициализация задачи, чтобы ceiling и другие поля были норм
+//todo: названия переменных
+//todo: как грамотно раскидать все файлы по разным package
