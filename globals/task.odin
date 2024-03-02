@@ -10,3 +10,8 @@ Task :: struct {
 	// имя
 	name:             string, // saymaname
 }
+
+/* task_activate() */
+/* task_terminate() */
+/* task_schedule() */
+/* task_dispatch() */
