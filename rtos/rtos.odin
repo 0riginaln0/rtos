@@ -2,23 +2,32 @@ package rtos
 
 import "core:fmt"
 
+import global "../global"
+import os "../os"
+import task "../task"
+
 main :: proc() {
-	fmt.println("hello world")
-	fmt.println("I am an RTOS")
-
-	maximum_tasks := MAX_TASK
-	maximum_resources := MAX_RES
-	fmt.printf("I can have:\n  {0:i} tasks\n  {1:i} resources\n", maximum_tasks, maximum_resources)
-
-	first_task := Task {
-		name = "Abobus",
-	}
-	start_os(first_task)
-
-	shutdown_os()
+	print_info()
+	task1_priority := 5
+	task1_name := "Abobus1"
+	os.start_os(task1, task1_priority, task1_name)
+	os.shutdown_os()
 }
 
-//todo: подумать про то где передаём task: Task, а где task: int
-//todo: правильная инициализация задачи, чтобы ceiling и другие поля были норм
-//todo: названия переменных
-//todo: как грамотно раскидать все файлы по разным package
+task1 :: proc() {
+	fmt.println("Task1: Start")
+	{
+		//Task body
+		fmt.println("Task1: Working")
+	}
+	fmt.println("Task1: Completed")
+	task.terminate_task()
+}
+
+print_info :: proc() {
+	fmt.println("hello world")
+	fmt.println("I am an RTOS")
+	maximum_tasks := global.MAX_TASK
+	maximum_resources := global.MAX_RES
+	fmt.printf("I can have:\n  {0:i} tasks\n  {1:i} resources\n", maximum_tasks, maximum_resources)
+}
