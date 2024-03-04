@@ -65,7 +65,7 @@ schedule :: proc(task: int, insert_mode: InsertMode) {
 }
 
 dispatch :: proc(task: int) {
-	fmt.println("Dispatch")
+	fmt.println("Dispatch started")
 
 	for running_task != task {
 		task_queue[running_task].entry()
