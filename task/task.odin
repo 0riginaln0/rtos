@@ -37,7 +37,7 @@ activate_task :: proc(entry: proc(), priority: int, name: string) {
 	fmt.println("End of Activate task", name)
 }
 
-schedule :: proc(task: int, insert_mode: global.InsertMode) {
+schedule :: proc(task: int, insert_mode: InsertMode) {
 
 	cur := global.running_task
 	prev := -1
