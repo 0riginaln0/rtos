@@ -3,7 +3,7 @@ package resource
 import "core:fmt"
 
 import "../global"
-import task "../task"
+import "../task"
 
 Resource :: struct {
 	task:     int,

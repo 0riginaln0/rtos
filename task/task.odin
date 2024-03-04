@@ -2,7 +2,7 @@ package task
 
 import "core:fmt"
 
-import global "../global"
+import "../global"
 
 Task :: struct {
 	name:             string,
@@ -62,7 +62,8 @@ schedule :: proc(task: int, insert_mode: InsertMode) {
 		global.task_queue[prev].ref = task
 	}
 
-	printf("End of Schedule %s\n", global.task_queue[task].name)
+
+	fmt.printf("End of Schedule %s\n", global.task_queue[task].name)
 }
 
 dispatch :: proc(task: int) {

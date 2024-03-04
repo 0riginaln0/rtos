@@ -1,7 +1,7 @@
 package global
 
-import resource "../resource"
-import task "../task"
+import "../resource"
+import "../task"
 
 MAX_TASK :: 32
 MAX_RES :: 16

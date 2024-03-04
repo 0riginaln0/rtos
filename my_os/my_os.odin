@@ -1,9 +1,9 @@
-package os
+package my_os
 
 import "core:fmt"
 
-import global "../global"
-import task "../task"
+import "../global"
+import "../task"
 
 start_os :: proc(entry: proc(), priority: int, name: string) {
 	fmt.println("OS: Start")
@@ -16,13 +16,13 @@ start_os :: proc(entry: proc(), priority: int, name: string) {
 		// поле ref в элементе массива задач означает номер след. элемента в списке
 		global.task_queue[index].ref = index + 1
 	}
-	global.task_queue[MAX_TASK - 1].ref = -1
+	global.task_queue[global.MAX_TASK - 1].ref = -1
 
-	for _, index in resource_queue {
+	for _, index in global.resource_queue {
 		global.resource_queue[index].priority = index + 1 // почему так?
-		global.resource_queue[index].task_ref = -1 // Номер задачи, которая владеет ресурсом
+		global.resource_queue[index].task = -1 // Номер задачи, которая владеет ресурсом
 	}
-	global.resource_queue[MAX_RES - 1].priority = -1
+	global.resource_queue[global.MAX_RES - 1].priority = -1
 
 	task.activate_task(entry, priority, name)
 }

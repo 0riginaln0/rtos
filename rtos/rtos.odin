@@ -2,16 +2,16 @@ package rtos
 
 import "core:fmt"
 
-import global "../global"
-import os "../os"
-import task "../task"
+import "../global"
+import o "../my_os"
+import "../task"
 
 main :: proc() {
 	print_info()
 	task1_priority := 5
 	task1_name := "Abobus1"
-	os.start_os(task1, task1_priority, task1_name)
-	os.shutdown_os()
+	o.start_os(task1, task1_priority, task1_name)
+	o.shutdown_os()
 }
 
 task1 :: proc() {
