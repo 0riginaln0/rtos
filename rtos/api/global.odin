@@ -11,16 +11,15 @@ MAX_RES :: 16
 
 @(private)
 task_queue: [MAX_TASK]t.Task
-/*фиксированный массив задач. У каждой задачи свой айдишник фиксированный, задаётся при старте ос*/
 @(private)
 resource_queue: [MAX_RES]t.Resource
 
 @(private)
 running_task: int
 @(private)
-free_task: int // *номер, ref, id* свободной задачи (речь про свободный слот в массиве)
+free_task: int
 @(private)
-free_resource: int // *номер, ref, id* свободного ресурса (речь про свободный слот в массиве)
+free_resource: int
 
 @(private)
 InsertMode :: enum {
@@ -53,7 +52,6 @@ schedule :: proc(task: int, insert_mode: InsertMode) {
 	} else {
 		task_queue[prev].ref = task
 	}
-
 
 	fmt.printf("End of Schedule %s\n", task_queue[task].name)
 }
